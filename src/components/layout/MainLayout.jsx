@@ -4,32 +4,21 @@ import Header from "./Header";
 
 function MainLayout() {
   return (
-    <div
-      style={{
-        display: "flex",
-        minHeight: "100vh",
-        background: "#f1f5f9",
-      }}
-    >
-      <Sidebar />
+    <div className="flex min-h-screen bg-slate-100">
+      {/* Sidebar */}
+      <div className="print:hidden">
+        <Sidebar />
+      </div>
 
-      <div
-        style={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          minWidth: 0,
-        }}
-      >
-        <Header />
+      {/* Main Area */}
+      <div className="flex min-w-0 flex-1 flex-col">
+        {/* Header */}
+        <div className="print:hidden">
+          <Header />
+        </div>
 
-        <main
-          style={{
-            padding: "25px",
-            flex: 1,
-            overflowY: "auto",
-          }}
-        >
+        {/* Page Content */}
+        <main className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-7 print:p-0">
           <Outlet />
         </main>
       </div>
